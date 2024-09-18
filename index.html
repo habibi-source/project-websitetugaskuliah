@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,128 +25,126 @@
             <i data-feather="shopping-cart"></i>
         </div>
     </header>
- <!-- Navbar End -->
+    <!-- Navbar End -->
     <!-- Home Start -->
     <div class="clearfix">
         <img class="logo-adolKlambi" src="img/assets/logo/white2.png" alt="">
-        <p class="paragraf" ;">Selamat datang di AdolKlambi, toko fashion yang mengutamakan kualitas dan gaya. Nama kami terinspirasi dari
+        <p class="paragraf" ;">Selamat datang di AdolKlambi, toko fashion yang mengutamakan kualitas dan gaya. Nama kami
+            terinspirasi dari
             bahasa Jawa, di mana "AdolKlambi" berarti "jual baju." Kami hadir untuk memenuhi kebutuhan fashion Anda
             dengan pilihan busana yang beragam. Di AdolKlambi kami percaya bahwa setiap orang berhak tampil gaya tanpa
             harus mengorbankan kenyamanan. Itulah sebabnya kami berkomitmen untuk menyediakan produk berkualitas tinggi
             dengan harga yang terjangkau.</p>
     </div>
     <!-- Home End -->
-   <!-- Shopping Cart Container -->
-    <div></div>
-   <div class="container mx-auto mt-10">
-    <div class="flex shadow-md my-10">
-        
-        <!-- Cart Items -->
-        <div class="w-3/4 bg-white px-10 py-10">
-            <div class="flex justify-between border-b pb-8">
-                <h1 class="font-semibold text-2xl">Shopping Cart</h1>
-                <h2 class="font-semibold text-2xl">3 Items</h2>
+    <!-- Shopping Cart Container -->
+
+    <div class="container mx-auto mt-10">
+        <div class="flex shadow-md my-10">
+
+            <!-- Cart Items -->
+            <div class="w-3/4 bg-indigo-900 px-10 py-10">
+                <div class="flex justify-between border-b pb-8">
+                    <h1 class="font-semibold text-2xl">Shopping Cart</h1>
+                    <h2 class="font-semibold text-2xl">3 Items</h2>
+                </div>
+
+                <!-- Product Row -->
+                <div class="flex items-center hover:bg-gray-700 -mx-8 px-6 py-5">
+                    <div class="flex w-2/5">
+                        <!-- Product Image -->
+                        <div class="w-20">
+                            <img class="h-24" src="img/assets/itemclothes/kemejalazada.jpg" alt="Product">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm text-black ">Kemeja Pria</span>
+                            <span class="text-red-500 text-xs">Brand Lazada</span>
+                            <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="flex justify-center w-1/5">
+                        <button class="text-gray-500 focus:outline-none">-</button>
+                        <input class="mx-2 border text-center w-8 " type="text" value="1">
+                        <button class="text-gray-500 focus:outline-none">+</button>
+                    </div>
+
+                    <!-- Price -->
+                    <span class="text-center w-1/5 font-semibold text-sm">Rp.19.000</span>
+
+                    <!-- Total -->
+                    <span class="text-center w-1/5 font-semibold text-sm">Rp.40.000</span>
+                </div>
+
+                <!-- Another Product Row -->
+                <div class="flex items-center hover:bg-gray-700 -mx-8 px-6 py-5">
+                    <div class="flex w-2/5">
+                        <!-- Product Image -->
+                        <div class="w-20">
+                            <img class="h-24" src="img/assets/itemclothes/kemeja.jpg" alt="Product">
+                        </div>
+                        <div class="flex flex-col justify-between ml-4 flex-grow">
+                            <span class="font-bold text-sm text-black">Kemeja Pria</span>
+                            <span class="text-red-500 text-xs">Brand Lazada</span>
+                            <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="flex justify-center w-1/5">
+                        <button class="text-gray-500 focus:outline-none">-</button>
+                        <input class="mx-2 border text-center w-8" type="text" value="2">
+                        <button class="text-gray-500 focus:outline-none">+</button>
+                    </div>
+
+                    <!-- Price -->
+                    <span class="text-center w-1/5 font-semibold text-sm">Rp.20.000</span>
+
+                    <!-- Total -->
+                    <span class="text-center w-1/5 font-semibold text-sm">Rp.40.000</span>
+                </div>
+
+                <!-- End of Cart Items -->
+            </div>
+            <!-- Shopping Cart End -->
+            <!-- Summary -->
+            <div id="summary" class="w-1/4 px-8 py-10 bg-red-600">
+                <h1 class="font-semibold text-2xl border-b pb-8">Ringkasan Pesanan</h1>
+                <div class="flex justify-between mt-10 mb-5">
+                    <span class="font-semibold text-sm uppercase">Items 3</span>
+                    <span class="font-semibold text-sm">70.000</span>
+                </div>
+                <div>
+                    <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
+                    <select class="block p-2 text-gray-600 w-full text-sm">
+                        <option>JNE - Rp.19.000</option>
+                        <option>Shoppe Express - Rp.25.000</option>
+                    </select>
+                </div>
+                <div class="py-10">
+                    <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
+                    <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
+                </div>
+                <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
+                <div class="border-t mt-8">
+                    <div class="flex font-semibold justify-between py-6 text-sm uppercase">
+                        <span>Total cost</span>
+                        <span>82.990</span>
+                    </div>
+                    <button
+                        class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+                </div>
             </div>
 
-            <!-- Product Row -->
-            <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                <div class="flex w-2/5">
-                    <!-- Product Image -->
-                    <div class="w-20">
-                        <img class="h-24" src="img/assets/itemclothes/kemejalazada.jpg" alt="Product">
-                    </div>
-                    <div class="flex flex-col justify-between ml-4 flex-grow">
-                        <span class="font-bold text-sm text-black ">Kemeja Pria</span>
-                        <span class="text-red-500 text-xs">Brand Lazada</span>
-                        <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                    </div>
-                </div>
-
-                <!-- Quantity -->
-                <div class="flex justify-center w-1/5">
-                    <button class="text-gray-500 focus:outline-none">-</button>
-                    <input class="mx-2 border text-center w-8" type="text" value="1">
-                    <button class="text-gray-500 focus:outline-none">+</button>
-                </div>
-
-                <!-- Price -->
-                <span class="text-center w-1/5 font-semibold text-sm">$400</span>
-
-                <!-- Total -->
-                <span class="text-center w-1/5 font-semibold text-sm">$400</span>
-            </div>
-
-            <!-- Another Product Row -->
-            <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-                <div class="flex w-2/5">
-                    <!-- Product Image -->
-                    <div class="w-20">
-                        <img class="h-24" src="img/assets/itemclothes/kemeja.jpg" alt="Product">
-                    </div>
-                    <div class="flex flex-col justify-between ml-4 flex-grow">
-                        <span class="font-bold text-sm text-black">Kemeja Pria</span>
-                        <span class="text-red-500 text-xs">Brand Lazada</span>
-                        <a href="#" class="font-semibold hover:text-red-500 text-gray-500 text-xs">Remove</a>
-                    </div>
-                </div>
-
-                <!-- Quantity -->
-                <div class="flex justify-center w-1/5">
-                    <button class="text-gray-500 focus:outline-none">-</button>
-                    <input class="mx-2 border text-center w-8" type="text" value="2">
-                    <button class="text-gray-500 focus:outline-none">+</button>
-                </div>
-
-                <!-- Price -->
-                <span class="text-center w-1/5 font-semibold text-sm">$200</span>
-
-                <!-- Total -->
-                <span class="text-center w-1/5 font-semibold text-sm">$400</span>
-            </div>
-
-            <!-- End of Cart Items -->
         </div>
-        <!-- Shopping Cart End -->
-        <!-- Summary -->
-        <div id="summary" class="w-1/4 px-8 py-10 bg-gray-100">
-            <h1 class="font-semibold text-2xl border-b pb-8">Order Summary</h1>
-            <div class="flex justify-between mt-10 mb-5">
-                <span class="font-semibold text-sm uppercase">Items 3</span>
-                <span class="font-semibold text-sm">$600</span>
-            </div>
-            <div>
-                <label class="font-medium inline-block mb-3 text-sm uppercase">Shipping</label>
-                <select class="block p-2 text-gray-600 w-full text-sm">
-                    <option>JNE - Rp.19.000</option>
-                    <option>Shoppe Express - Rp.25.000</option>
-                </select>
-            </div>
-            <div class="py-10">
-                <label for="promo" class="font-semibold inline-block mb-3 text-sm uppercase">Promo Code</label>
-                <input type="text" id="promo" placeholder="Enter your code" class="p-2 text-sm w-full">
-            </div>
-            <button class="bg-red-500 hover:bg-red-600 px-5 py-2 text-sm text-white uppercase">Apply</button>
-            <div class="border-t mt-8">
-                <div class="flex font-semibold justify-between py-6 text-sm uppercase">
-                    <span>Total cost</span>
-                    <span>$610</span>
-                </div>
-                <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
-            </div>
-        </div>
-
     </div>
-</div>
     <!-- About Us Start -->
-    <div class="about-us">
-        <h1 class="">About Us</h1>
-        <h3 class="paragraf">
-
-        </h3>
+    <div >
+        <h1 class="ml-7">About Us</h1>
         <p class="">Misi kami adalah memberikan pengalaman
             berbelanja yang menyenangkan, cepat, dan mudah, serta memastikan kepuasan pelanggan dengan pelayanan yang
             ramah dan profesional. Mari temukan gaya terbaikmu bersama ADOLKLAMBI!</p>
-
     </div>
     <!-- Aboout Us End -->
 
