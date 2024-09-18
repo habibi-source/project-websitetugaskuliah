@@ -16,7 +16,7 @@
         <div class="logo">AdolKlambi</div>
         <nav>
             <a href="#">Home</a>
-            <a href="#">Tentang Kami</a>
+            <a href="#about-us">Tentang Kami</a>
             <a href="#">Menu</a>
             <a href="#">Kontak</a>
         </nav>
@@ -65,9 +65,9 @@
 
                     <!-- Quantity -->
                     <div class="flex justify-center w-1/5">
-                        <button class="text-gray-500 focus:outline-none">-</button>
-                        <input class="mx-2 border text-center w-8 " type="text" value="1">
-                        <button class="text-gray-500 focus:outline-none">+</button>
+                        <button  class="decrease-btn text-gray-500 focus:outline-none">-</button>
+                        <input  type="number" value="0" min="0" class="quantity mx-2 border text-center w-8 text-black" >
+                        <button  class="increase-btn text-gray-500 focus:outline-none">+</button>
                     </div>
 
                     <!-- Price -->
@@ -93,9 +93,9 @@
 
                     <!-- Quantity -->
                     <div class="flex justify-center w-1/5">
-                        <button class="text-gray-500 focus:outline-none">-</button>
-                        <input class="mx-2 border text-center w-8" type="text" value="2">
-                        <button class="text-gray-500 focus:outline-none">+</button>
+                        <button class="decrease-btntext-gray-500 focus:outline-none">-</button> 
+                        <input type="number" value="0" min="0"  class="quantity mx-2 border text-center w-8 text-black" >                       
+                        <button class="increase-btn text-gray-500 focus:outline-none">+</button>
                     </div>
 
                     <!-- Price -->
@@ -132,16 +132,15 @@
                         <span>Total cost</span>
                         <span>82.990</span>
                     </div>
-                    <button
-                        class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
+                    <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">Checkout</button>
                 </div>
             </div>
 
         </div>
     </div>
     <!-- About Us Start -->
-    <div >
-        <h1 class="ml-7">About Us</h1>
+    <div>
+        <h1 class="ml-7" id="about-us">About Us</h1>
         <p class="">Misi kami adalah memberikan pengalaman
             berbelanja yang menyenangkan, cepat, dan mudah, serta memastikan kepuasan pelanggan dengan pelayanan yang
             ramah dan profesional. Mari temukan gaya terbaikmu bersama ADOLKLAMBI!</p>
@@ -157,6 +156,7 @@
     <script>
         feather.replace();
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
