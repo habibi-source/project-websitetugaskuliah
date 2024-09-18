@@ -47,3 +47,24 @@ nav a {
     width: 20px;
     height: 20px;
 }
+.paragraf{
+    color: aqua;
+    font-family:'Courier New', Courier, monospace;
+}
+.logo-adolKlambi{
+    width: 50%; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px;
+    padding-top: 40px;
+    margin-left: -5px;
+    float: left; 
+    margin-right: 20px; 
+}
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.about-us{
+    margin-top: +10px;
+}
