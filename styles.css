@@ -71,3 +71,22 @@ nav a {
 .about-us{
     margin-top: +10px;
 }
+.contact-info {
+    margin-top: 10px;
+}
+
+.contact-info a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+}
+.icon-link {
+   
+    
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border: 3px solid #ccc;   
+    
+}
