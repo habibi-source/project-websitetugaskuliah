@@ -23,31 +23,100 @@ decreaseBtns.forEach((btn, index) => {
     });
 });
 
-function login() {
-    // Ambil nilai dari input email dan password
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+// Consolidated login logic
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('loginPassword').value;
+  
+  console.log('Before sending - Username:', username, 'Password:', password);
+
+  fetch('http://localhost:8080/api/login', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, password }),
+  })
+  .then(response => {
+      // Cek apakah respons berhasil (status 200-299) atau gagal
+      if (!response.ok) {
+          return response.json().then(data => {
+              throw new Error(data.error || 'Login failed');
+          });
+      }
+      return response.json(); // Parse respons JSON jika berhasil
+  })
+  .then(data => {
+      // Hapus pesan sebelumnya jika ada
+      const existingMessage = document.getElementById('loginMessage');
+      if (existingMessage) {
+          existingMessage.remove();
+      }
+
+      // Menampilkan pesan login sukses
+      const messageElement = document.createElement('p');
+      messageElement.id = 'loginMessage'; 
+      messageElement.innerText = 'Login successful!';
+      messageElement.style.color = 'green';
+      document.getElementById('loginForm').appendChild(messageElement);
+
+      // Menambahkan delay 2000 milidetik sebelum pindah halaman
+      localStorage.setItem('token', data.token);
+      setTimeout(() => {
+          window.location.href = "index.html";
+      }, 2000);
+  })
+  .catch((error) => {
+      // Hapus pesan sebelumnya jika ada
+      const existingMessage = document.getElementById('loginMessage');
+      if (existingMessage) {
+          existingMessage.remove();
+      }
+
+      // Tampilkan pesan kesalahan
+      const messageElement = document.createElement('p');
+      messageElement.id = 'loginMessage'; 
+      messageElement.innerText = error.message;
+      messageElement.style.color = 'red';
+      document.getElementById('loginForm').appendChild(messageElement);
+      
+      console.error('Error:', error);
+  });
+});
+
+// Registration logic remains unchanged
+document.getElementById('registerForm').addEventListener('submit', function(e) {
+    e.preventDefault();
     
-    // Atur email dan password yang benar (misalnya data dummy)
-    var correctEmail = "AdolKlambi";
-    var correctPassword = "12345";
-    
-    // Validasi input email dan password
-    if (email === correctEmail && password === correctPassword) {
-        // Tampilkan pesan login berhasil
-        document.getElementById('message').textContent = "Login successful!";
-        document.getElementById('message').style.color = "green";
-        
-        // Setelah 2 detik, arahkan ke halaman lain
-        setTimeout(function() {
-            console.log("Redirecting to dashboard.html...");
-            window.location.href = "main-menu.html"; // Ganti dengan nama halaman yang diinginkan
-        }, 2000); // 2000 milidetik = 2 detik
-    } else if (email === "" || password === "") {
-        document.getElementById('message').textContent = "Email and Password cannot be empty.";
-        document.getElementById('message').style.color = "red";
-    } else {
-        document.getElementById('message').textContent = "Invalid email or password.";
-        document.getElementById('message').style.color = "red";
-    }
-}
+    const username = document.getElementById('newUsername').value;
+    const email = document.getElementById('newEmail').value; // Ambil email dari form
+    const password = document.getElementById('newPassword').value;
+
+    fetch('http://localhost:8080/api/register', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, email, password }),  // Kirim username, email, dan password
+    })
+    .then(response => {
+        const contentType = response.headers.get('content-type');
+        if (contentType && contentType.includes('application/json')) {
+            return response.json();
+        } else {
+            return response.text();
+        }
+    })
+    .then(data => {
+        if (typeof data === 'object') {
+            alert('Registration successful! Please login.');
+        } else {
+            alert(data);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+});
