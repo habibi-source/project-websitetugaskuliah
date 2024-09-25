@@ -88,35 +88,38 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
 // Registration logic remains unchanged
 document.getElementById('registerForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const username = document.getElementById('newUsername').value;
-    const email = document.getElementById('newEmail').value; // Ambil email dari form
-    const password = document.getElementById('newPassword').value;
+  e.preventDefault();
+  
+  const username = document.getElementById('newUsername').value;
+  const email = document.getElementById('newEmail').value;
+  const password = document.getElementById('newPassword').value;
 
-    fetch('http://localhost:8080/api/register', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, email, password }),  // Kirim username, email, dan password
-    })
-    .then(response => {
-        const contentType = response.headers.get('content-type');
-        if (contentType && contentType.includes('application/json')) {
-            return response.json();
-        } else {
-            return response.text();
-        }
-    })
-    .then(data => {
-        if (typeof data === 'object') {
-            alert('Registration successful! Please login.');
-        } else {
-            alert(data);
-        }
-    })
-    .catch((error) => {
-        console.error('Error:', error);
-    });
+  console.log('Form data:', { username, email, password }); // Log form data for debugging
+
+  fetch('http://localhost:8080/api/register', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+  })
+  .then(response => {
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+          return response.json();
+      } else {
+          return response.text();
+      }
+  })
+  .then(data => {
+      console.log('Response data:', data); // Log response for debugging
+      if (typeof data === 'object') {
+          alert('Registration successful! Please login.');
+      } else {
+          alert(data);
+      }
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+  });
 });
