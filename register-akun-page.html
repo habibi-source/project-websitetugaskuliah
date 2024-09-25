@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Akun</title>
-    <script src="https://unpkg.com/feather-icons"></script>
     <link href="./output.css" rel="stylesheet">
     <script src="https://unpkg.com/feather-icons"></script>
+
 </head>
 <body>
     <div class="p-6 max-w-md mx-auto rounded-lg">
@@ -52,9 +52,48 @@
         </div>
     </footer>
     <!-- Footer End -->
+
     <script>
         feather.replace();
     </script>
-    <script src="script.js"></script>
+    <script >
+        // Registration logic remains unchanged
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const username = document.getElementById('newUsername').value;
+  const email = document.getElementById('newEmail').value;
+  const password = document.getElementById('newPassword').value;
+
+  console.log('Form data:', { username, email, password }); // Log form data for debugging
+
+  fetch('http://localhost:8080/api/register', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ username, email, password }),
+  })
+  .then(response => {
+      const contentType = response.headers.get('content-type');
+      if (contentType && contentType.includes('application/json')) {
+          return response.json();
+      } else {
+          return response.text();
+      }
+  })
+  .then(data => {
+      console.log('Response data:', data); // Log response for debugging
+      if (typeof data === 'object') {
+          alert('Registration successful! Please login.');
+      } else {
+          alert(data);
+      }
+  })
+  .catch((error) => {
+      console.error('Error:', error);
+  });
+});
+    </script>
 </body>
 </html>
